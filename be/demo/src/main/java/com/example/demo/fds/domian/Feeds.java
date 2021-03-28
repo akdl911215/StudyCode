@@ -1,11 +1,14 @@
 package com.example.demo.fds.domian;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
+import lombok.*;
+
+@NoArgsConstructor
 @Entity
+@Data
+@Getter
+@Table(name = "feeds")
 public class Feeds {
 	
 	@Id
@@ -31,4 +34,20 @@ public class Feeds {
 	
 	@Column(name = "reg_date")
 	private String regDate;
+
+	@Builder
+	public Feeds(long feedNo, String title, String writer, String content, String addLoction, String hashTag,
+			String regDate) {
+		super();
+		this.feedNo = feedNo;
+		this.title = title;
+		this.writer = writer;
+		this.content = content;
+		this.addLoction = addLoction;
+		this.hashTag = hashTag;
+		this.regDate = regDate;
+	}
+	
+	
+	
 }

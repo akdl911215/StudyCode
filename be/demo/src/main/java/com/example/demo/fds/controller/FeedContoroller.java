@@ -2,6 +2,7 @@ package com.example.demo.fds.controller;
 
 
 import org.springframework.http.HttpStatus;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,16 +15,20 @@ import com.example.demo.fds.service.FeedServiceImpl;
 
 import lombok.RequiredArgsConstructor;
 
-@RequiredArgsConstructor 
+
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/feeds")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins="*")
 public class FeedContoroller {
 	
 	private final FeedServiceImpl service;
-	
-	@PostMapping("/create")
-	public ResponseEntity<Feeds> info( @RequestBody Feeds feeds){
-		return new ResponseEntity<Feeds>(HttpStatus.OK);
-	}
+
+	    @PostMapping("/create")
+	    public ResponseEntity<?>save(
+	    		@RequestBody Feeds feeds){
+	    	service.save(feeds);
+	    	
+	    	return new ResponseEntity<>(HttpStatus.OK);
+	    }
 }
