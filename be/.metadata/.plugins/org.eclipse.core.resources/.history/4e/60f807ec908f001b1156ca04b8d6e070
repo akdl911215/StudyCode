@@ -3,13 +3,10 @@ package com.example.demo.fds.repository;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.example.demo.fds.domian.Feeds;
@@ -23,6 +20,23 @@ public class FeedRepositoyryImpl implements FeedRepository{
 
 	private static Feeds fd;
 	
+	@Override
+	public List<Feeds> findAll() throws Exceotion {
+		
+		List<Feeds> result = jdbcTemplate.qyery(
+				"select board_no, title, ,writer, content, add_location,"
+				+ "hash_tag, reg_date",
+			new RowMapper<Feeds>() {
+					@Overide
+					public Feeds mapRow(Result rs, int rowNum) throw SQLException {
+						
+						Feeds feeds = new Feeds();
+						feeds.setFeedNo(rs.getFeedNo);
+					}
+				})
+		
+		return (List<Feeds>) fd;
+	}
 
 	@Override
 	public List<Feeds> findAll(Sort sort) {
@@ -176,12 +190,6 @@ public class FeedRepositoyryImpl implements FeedRepository{
 
 	@Override
 	public Feeds view(int feeds) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Feeds> findAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}

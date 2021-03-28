@@ -5,7 +5,6 @@ import org.springframework.http.HttpStatus;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,18 +25,10 @@ public class FeedContoroller {
 	private final FeedServiceImpl service;
 
 	    @PostMapping("/create")
-	    public ResponseEntity<?> insert(
+	    public ResponseEntity<?>save(
 	    		@RequestBody Feeds feeds){
 	    	service.save(feeds);
 	    	
 	    	return new ResponseEntity<>(HttpStatus.OK);
-	    }
-	    
-	    @GetMapping("/list")
-	    public ResponseEntity<?> findAll(){
-	    		System.out.println("getFeedsFindAll()");
-	    		
-				return new ResponseEntity<>(HttpStatus.OK);
-	    	
 	    }
 }
