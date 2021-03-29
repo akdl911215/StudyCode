@@ -3,15 +3,15 @@ package com.example.demo.fds.domian;
 import java.io.Serializable;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-
-@AllArgsConstructor
 @NoArgsConstructor
 @ToString
-@Data
+@Getter
 public class FeedsDto implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
@@ -22,4 +22,28 @@ public class FeedsDto implements Serializable {
 	private String addLoction;
 	private String hashTag;
 	private String regDate;
+	
+	@Builder
+	public FeedsDto(long feedNo, String title, String writer, String content, String addLoction, String hashTag,
+			String regDate) {
+		super();
+		this.feedNo = feedNo;
+		this.title = title;
+		this.writer = writer;
+		this.content = content;
+		this.addLoction = addLoction;
+		this.hashTag = hashTag;
+		this.regDate = regDate;
+	}
+	
+	public Feeds toEntity() {
+		return  Feeds.builder()
+					 .title(title)
+					 .writer(writer)
+					 .content(content)
+					 .addLoction(addLoction)
+					 .hashTag(hashTag)
+					 .build();
+	}
+	
 }

@@ -1,7 +1,6 @@
 package com.example.demo.fds.service;
 
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 import org.springframework.stereotype.Service;
 
@@ -11,8 +10,8 @@ import com.example.demo.fds.repository.FeedRepository;
 
 import lombok.RequiredArgsConstructor;
 
-@Service
 @RequiredArgsConstructor
+@Service
 public class FeedServiceImpl extends AbstractService<Feeds> implements FeedService {
 	
 	private final FeedRepository repo;
@@ -56,7 +55,7 @@ public class FeedServiceImpl extends AbstractService<Feeds> implements FeedServi
 	@Override
 	public Feeds save(Feeds entity) {
 		// TODO Auto-generated method stub
-		return repo.save(entity);
+		return null;
 	}
 
 }
