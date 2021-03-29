@@ -29,16 +29,13 @@ public class FeedContoroller {
 	    @PostMapping("/insert")
 	    public ResponseEntity<?> insert(
 	    		@RequestBody Feeds feeds){
-	    	System.out.println("-----insert 작동중-------");
 	    	System.out.println("getFeedsInsert()");
-	    	
-	    		    
+	    		    	
 	    	return new ResponseEntity<>(service.save(feeds), HttpStatus.OK);
 	    }
 	    
 	    @GetMapping("/list")
 	    public ResponseEntity<?> findAll(){
-	    	System.out.println("-----findAll 작동중-------");
 	    		System.out.println("getFeedsFindAll()");
 	   
 			return new ResponseEntity<>(service.findAll(), HttpStatus.OK);
