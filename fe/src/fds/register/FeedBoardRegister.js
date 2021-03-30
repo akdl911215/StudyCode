@@ -1,6 +1,5 @@
 import React, { useCallback, useState } from 'react';
 import axios from 'axios';
-import { Route } from 'react-router-dom';
 
 const FeedBoardRegister = () => {
     const [inputs, setInputs] = useState({
@@ -9,16 +8,6 @@ const FeedBoardRegister = () => {
         content: ' ',
         addLocation: ' ',
         hashTag: ' ',
-    });
-
-    const handleList = useCallback(() => {
-        axios
-            .get(`http://localhost:3000/FeedBoardList`)
-            .then((res) => {
-                alert('성공');
-                console.log(res);
-            })
-            .catch((err) => console.log(err));
     });
 
     const { title, writer, content, addLocation, hashTag } = inputs;

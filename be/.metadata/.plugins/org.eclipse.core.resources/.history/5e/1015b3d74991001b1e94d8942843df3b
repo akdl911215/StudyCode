@@ -66,7 +66,7 @@ public class FeedContoroller {
 	    	return new ResponseEntity<>("delete sucess", HttpStatus.NO_CONTENT);
 	    }
 	    
-	    @RequestMapping("/{feedNo}")
+	    @GetMapping("/{feedNo")
 	    public ResponseEntity<String> update(
 	    		@RequestBody Feeds feeds){
 	    	System.out.println("-----update ¿€µø¡ﬂ-----");

@@ -1,18 +1,16 @@
 import axios from 'axios';
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const FeedBoardRead = () => {
     const [detail, setDetail] = useState({});
 
-    const ddd = () => {
+    const deleteOne = () => {
         alert('삭제하시겠습니까?');
-
         axios
             .delete(`http://localhost:8080/feeds/${localStorage.getItem('select')}`)
             .then((res) => {
                 console.log(res);
-                setDetail(res.data);
             })
             .catch((err) => console.log(err));
     };
@@ -31,33 +29,7 @@ const FeedBoardRead = () => {
         fetchOne();
     }, []);
 
-    const handlDelete = useCallback(() => {
-        if (window.confirm('삭제하시겠습니까?')) {
-            console.log(`삭제:${detail.feedNo}`);
-            axios
-                .delete(`http://localhost8080/fds/list/${localStorage.getItem('select')}`)
-                .then((res) => {
-                    console.log(res);
-                })
-                .catch((err) => console.log(err));
-        }
-    }, [detail.feedNo]);
-
     return (
-        // <form>
-        //     <label>FeedNo</label>
-        //     <input className="ragiterForm" type="text" value="detail.feedNo"></input>
-        //     <label>Title</label>
-        //     <input className="ragisterForm" type="text" value="detail.toitle"></input>
-        //     <label>Writer</label>
-        //     <input className="ragisterForm" type="text" value="detail.writer"></input>
-        //     <label>Content</label>
-        //     <input className="ragisterForm" type="text" value="detail.content"></input>
-        //     <label>addLocation</label>
-        //     <input className="ragisterForm" type="text" value="detail.addLocation"></input>
-        //     <label>regDate</label>
-        //     <input className="ragisterForm" type="text" value="detail.regDate"></input>
-        // </form>
         <form>
             <div>
                 <table>
@@ -85,19 +57,13 @@ const FeedBoardRead = () => {
                     </tbody>
                 </table>
 
-                <Link to={`/FeedBoardReed/${detail.feedNo}`}>
+                <Link to={`/FeedBoardUpdate/${detail.feedNo}`}>
                     <button>수정하기</button>
                 </Link>
-                <button method="Post" onClick={handlDelete}>
-                    삭제하기
-                </button>
+                <button onClick={deleteOne}>삭제하기</button>
                 <Link to="/FeedBoardList">
                     <button>목록으로</button>
                 </Link>
-
-                <a href={`http://localhost:8080/feeds/${localStorage.getItem('select')}`}>
-                    <button onClick={ddd}>삭제하기 테스트</button>
-                </a>
             </div>
         </form>
     );

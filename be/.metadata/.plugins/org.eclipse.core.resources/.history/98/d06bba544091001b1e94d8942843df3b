@@ -12,7 +12,7 @@ public abstract class AbstractService<T> {
 	public abstract Optional<T> findOne();
 	public abstract void deleteById(long id);
 	public abstract T getOne(long id);
-	public abstract void save(T entity);
+	public abstract T save(T entity);
 	public abstract T findById(Long id);
 
 }

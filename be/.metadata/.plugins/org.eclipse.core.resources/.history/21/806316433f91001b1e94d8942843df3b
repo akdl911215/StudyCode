@@ -31,7 +31,7 @@ public class FeedServiceImpl extends AbstractService<Feeds> implements FeedServi
 	@Override
 	public List<Feeds> findAll() {
 		// TODO Auto-generated method stub
-		return repo.findAll();
+		return repo.findAll()
 	}
 
 	@Override
@@ -43,7 +43,6 @@ public class FeedServiceImpl extends AbstractService<Feeds> implements FeedServi
 	@Override
 	public void deleteById(long id) {
 		repo.deleteById(id);
-		
 	}
 
 	@Override
@@ -52,17 +51,16 @@ public class FeedServiceImpl extends AbstractService<Feeds> implements FeedServi
 		return null;
 	}
 
-
+	@Override
+	public Feeds save(Feeds entity) {
+		// TODO Auto-generated method stub
+		return repo.save(entity);
+	}
 
 	@Override
 	public Feeds findById(Long id) {
 		// TODO Auto-generated method stub
 		return repo.findByFeedNo(id);
-	}
-
-	@Override
-	public void save(Feeds entity) {
-		repo.save(entity);
 	}
 
 }

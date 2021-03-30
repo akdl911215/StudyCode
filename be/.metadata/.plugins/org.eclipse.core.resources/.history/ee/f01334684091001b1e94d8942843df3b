@@ -63,6 +63,7 @@ public class FeedServiceImpl extends AbstractService<Feeds> implements FeedServi
 	@Override
 	public void save(Feeds entity) {
 		repo.save(entity);
+		
 	}
 
 }
