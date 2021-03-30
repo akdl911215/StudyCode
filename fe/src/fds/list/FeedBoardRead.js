@@ -5,6 +5,18 @@ import { Link } from 'react-router-dom';
 const FeedBoardRead = () => {
     const [detail, setDetail] = useState({});
 
+    const ddd = () => {
+        alert('삭제하시겠습니까?');
+
+        axios
+            .delete(`http://localhost:8080/feeds/${localStorage.getItem('select')}`)
+            .then((res) => {
+                console.log(res);
+                setDetail(res.data);
+            })
+            .catch((err) => console.log(err));
+    };
+
     const fetchOne = () => {
         axios
             .get(`http://localhost:8080/feeds/${localStorage.getItem('select')}`)
@@ -82,6 +94,10 @@ const FeedBoardRead = () => {
                 <Link to="/FeedBoardList">
                     <button>목록으로</button>
                 </Link>
+
+                <a href={`http://localhost:8080/feeds/${localStorage.getItem('select')}`}>
+                    <button onClick={ddd}>삭제하기 테스트</button>
+                </a>
             </div>
         </form>
     );

@@ -4,6 +4,7 @@ import FeedBoardRegister from './fds/register/FeedBoardRegister';
 import { Route } from 'react-router-dom';
 import Home from './cmm/container/Home';
 import FeedBoardRead from './fds/list/FeedBoardRead';
+import FeedBoardDelete from './fds/list/FeedBoardDelete';
 import { Button } from 'reactstrap';
 import axios from 'axios';
 
@@ -16,6 +17,8 @@ const App = () => {
             <Route path="/FeedBoardRegister" component={FeedBoardRegister} />
             <br />
             <Route path="/FeedBoardRead" component={FeedBoardRead} />
+            <br />
+            <Route path="/FeedBoardDelete" component={FeedBoardDelete} />
         </>
     );
 };

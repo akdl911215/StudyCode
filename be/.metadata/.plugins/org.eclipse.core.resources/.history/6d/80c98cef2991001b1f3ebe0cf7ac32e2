@@ -53,12 +53,6 @@ public class FeedContoroller {
 	    	return new ResponseEntity<>(service.findById(feedNo), HttpStatus.OK);
 	    }
 	    
-	    @DeleteMapping("/{feedNo}")
-	    public void deleteById(@PathVariable("feedNo") Long feedNo){
-	    	System.out.println("-----deleteById ¿€µø¡ﬂ -----");
-	    	System.out.println("getDeleteById()");
-	    	
-	    	service.deleteById(feedNo);
-	    }
+	    @GetMapping("/")
 	   
 }

@@ -5,14 +5,14 @@ import { Button } from 'reactstrap';
 import '../css/list.css';
 
 const FeedBoardList = () => {
-    const [fds, setFes] = useState([]);
+    const [fds, setFds] = useState([]);
 
     const fetchList = () => {
         axios
             .get('http://localhost:8080/feeds/list')
             .then((res) => {
                 console.log(res);
-                setFes(res.data);
+                setFds(res.data);
             })
             .catch((err) => {
                 console.log(err);
