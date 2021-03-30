@@ -12,6 +12,7 @@ public class Feeds {
 	
 	@Id
 	@GeneratedValue
+
 	@Column(name = "feed_no")
 	private long feedNo;
 	

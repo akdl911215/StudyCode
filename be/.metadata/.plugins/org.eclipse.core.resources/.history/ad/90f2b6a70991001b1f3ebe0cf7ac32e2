@@ -61,7 +61,7 @@ public class FeedServiceImpl extends AbstractService<Feeds> implements FeedServi
 	@Override
 	public Feeds findById(Long id) {
 		// TODO Auto-generated method stub
-		return repo.findByFeedNo(id);
+		return repo.findById(id);
 	}
 
 }

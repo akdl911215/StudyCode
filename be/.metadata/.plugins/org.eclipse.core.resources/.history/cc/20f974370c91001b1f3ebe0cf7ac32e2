@@ -45,10 +45,9 @@ public class FeedContoroller {
 			return new ResponseEntity<>(service.findAll(), HttpStatus.OK);
 	    }
 	    
-	    @GetMapping("/{feedNo}")
+	    @GetMapping("/{FeedNo}")
 	    public ResponseEntity<?> findById(@PathVariable("feedNo") Long feedNo){
 	    	System.out.println("-----findiByID ¿€µø¡ﬂ -----");
-	    	System.out.println("getfindById()");
 	    	
 	    	return new ResponseEntity<>(service.findById(feedNo), HttpStatus.OK);
 	    }
