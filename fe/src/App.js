@@ -5,6 +5,7 @@ import { Route } from 'react-router-dom';
 import Home from './cmm/container/Home';
 import FeedBoardRead from './fds/container/FeedBoardRead';
 import FeedBoardUpdate from './fds/container/FeedBoardUpdate';
+import SignUp from './uss/container/SignUp';
 
 const App = () => {
     return (
@@ -17,6 +18,8 @@ const App = () => {
             <Route path="/FeedBoardRead" component={FeedBoardRead} />
             <br />
             <Route path="/FeedBoardUpdate" component={FeedBoardUpdate} />
+            <br />
+            <Route path="/SignUp" component={SignUp} />
         </>
     );
 };

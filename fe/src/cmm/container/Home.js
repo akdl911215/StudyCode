@@ -9,6 +9,7 @@ const Home = () => {
                 <br />
                 <Link to={'/FeedBoardRegister'}>FeedBoardRegister</Link>
                 <br />
+                <Link to={'/SignUp'}>SignUp</Link>
             </div>
         </>
     );

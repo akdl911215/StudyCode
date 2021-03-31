@@ -29,13 +29,6 @@ const FeedBoardRegister = () => {
             e.preventDefault();
             console.log('작동');
 
-            alert('test Insert');
-            alert('제목 : ' + title);
-            alert('작성자 : ' + writer);
-            alert('본문내용 : ' + content);
-            alert('작성위치 : ' + addLocation);
-            alert('해쉬태그 : ' + hashTag);
-            alert('등록일자 : ' + regDate);
             axios
                 .post('http://localhost:8080/feeds/insert', {
                     title,

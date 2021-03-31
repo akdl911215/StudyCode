@@ -37,7 +37,8 @@ public class Feeds {
 	
 
 	@Builder
-	public Feeds(long feedNo, String title, String writer, String content, String addLocation, String hashTag,
+	public Feeds(long feedNo, String title, String writer, 
+			String content, String addLocation, String hashTag,
 			String regDate) {
 		super();
 		this.feedNo = feedNo;

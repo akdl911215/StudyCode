@@ -61,10 +61,7 @@ const FeedBoardRead = () => {
                     <button>수정하기</button>
                 </Link>
 
-                <script>
-                    window.location = '/FeedBoardList';
-                    <button onClick={deleteOne}>삭제하기</button>
-                </script>
+                <button onClick={deleteOne}>삭제하기</button>
 
                 <Link to="/FeedBoardList">
                     <button>목록으로</button>

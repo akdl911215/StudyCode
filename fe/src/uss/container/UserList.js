@@ -1,42 +1,57 @@
 import './src/uss/component/userList.css';
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
+import { Link } from 'react-router-dom'
 
-const UserList = () => (
-    <form action="/action_page.php">
-        <div className="container">
-            <h1>Delete (계정삭제)</h1>
-            <p>Please fill in this form to delete an account.</p>
-            <hr />
+const UserList = () => {
 
-            <label for="email">
-                <b>Email ( ID )</b>
-            </label>
-            <input type="text" placeholder="Enter Email" name="email" id="email" required />
+    const [uss, setUss] = useState([]);
 
-            <label for="psw">
-                <b>Password</b>
-            </label>
-            <input type="password" placeholder="Enter Password" name="psw" id="psw" required />
+    const fetchList = () => {
 
-            <label for="psw-repeat">
-                <b>Repeat Password</b>
-            </label>
-            <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required />
-            <hr />
-            <p>
-                By creating an account you agree to our <a href="#">Terms & Privacy</a>.
-            </p>
+        
+    }
 
-            <button type="/submit" class="registerbtn">
-                Delete (계정삭제)
-            </button>
-        </div>
-
-        <div className="container signin">
-            <p>
-                Already have an account? <a href="#">Sign in</a>.
-            </p>
-        </div>
-    </form>
-);
+<table>
+            <thead>
+                <tr>
+                    <th>유저 넘버</th>
+                    <th>아이디</th>
+                    <th>비밀번호</th>
+                    <th>email</th>
+                    <th>주소</th>
+                    <th>핸드폰 번호</th>
+                    <th>상세 보기</th>
+                </tr>
+            </thead>
+            <tbody>
+                {fds.map((uss) => {
+                    return (
+                        <tr key={uss.feedNo}>
+                            <td>{uss.feedNo}</td>
+                            <td>{uss.title}</td>
+                            <td>{uss.writer}</td>
+                            <td>{uss.content}</td>
+                            <td>{uss.addLocation}</td>
+                            <td>{uss.hashTag}</td>
+                            <td>{uss.regDate}</td>
+                            <td>
+                                <Link to={`/FeedBoardRead/${uss.feedNo}`} className="linkto-uss">
+                                    <button
+                                        onClick={() => {
+                                            localStorage.setItem('select', `${uss.feedNo}`);
+                                        }}
+                                    >
+                                        자세히 보기
+                                    </button>
+                                </Link>
+                            </td>
+                        </tr>
+                    );
+                })}
+            </tbody>
+        </table>
+    );
+};
 
 export default UserList;
