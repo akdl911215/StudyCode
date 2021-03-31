@@ -8,7 +8,6 @@ import lombok.*;
 @Entity
 @Getter
 @Setter
-@ToString
 @Table(name = "feeds")
 public class Feeds {
 	
@@ -27,7 +26,7 @@ public class Feeds {
 	private String content;
 	
 	@Column(name = "add_location")
-	private String addLocation;
+	private String addLoction;
 	
 	@Column(name = "hash_tag")
 	private String hashTag;
@@ -37,14 +36,14 @@ public class Feeds {
 	
 
 	@Builder
-	public Feeds(long feedNo, String title, String writer, String content, String addLocation, String hashTag,
+	public Feeds(long feedNo, String title, String writer, String content, String addLoction, String hashTag,
 			String regDate) {
 		super();
 		this.feedNo = feedNo;
 		this.title = title;
 		this.writer = writer;
 		this.content = content;
-		this.addLocation = addLocation;
+		this.addLoction = addLoction;
 		this.hashTag = hashTag;
 		this.regDate = regDate;
 	}

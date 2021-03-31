@@ -81,5 +81,16 @@ public class FeedContoroller {
 			return new ResponseEntity<>("update success", HttpStatus.OK);
 	    }
 	    
-
+//	    @PostMapping("/insert")
+//	    public ResponseEntity<String> createInsert(
+//	    		@RequestBody Feeds feeds){
+//	    	System.out.println("-----createInsert ¿€µø¡ﬂ-------");
+//	    	System.out.println("getFeedsCreateInsert()");
+//	    	System.out.println("feeds = " + feeds.toString());
+//	    	
+//	    	service.createInsert(feeds);
+//	    	
+//	    	return new ResponseEntity<>("createInsert success", HttpStatus.OK);
+//	    }
+	   
 }

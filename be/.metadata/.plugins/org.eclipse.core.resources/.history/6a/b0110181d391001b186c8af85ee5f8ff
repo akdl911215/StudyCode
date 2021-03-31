@@ -29,17 +29,16 @@ public class FeedContoroller {
 	
 	private final FeedServiceImpl service;
 
-	    @PostMapping("/insert")
-	    public ResponseEntity<String> insert(
-	    		@RequestBody Feeds feeds){
-	    	System.out.println("-----insert 작동중-------");
-	    	System.out.println("getFeedsInsert()");
-	    	System.out.println("feeds = " + feeds.toString());
-	    	
-	    	service.save(feeds);
-	    	
-	    	return new ResponseEntity<>("insert success", HttpStatus.OK);
-	    }
+//	    @PostMapping("/insert")
+//	    public ResponseEntity<String> insert(
+//	    		@RequestBody Feeds feeds){
+//	    	System.out.println("-----insert 작동중-------");
+//	    	System.out.println("getFeedsInsert()");
+//	    	
+//	    	service.save(feeds);
+//	    	
+//	    	return new ResponseEntity<>("insert success", HttpStatus.OK);
+//	    }
 	    
 	    @GetMapping("/list")
 	    public ResponseEntity<?> findAll(){
@@ -81,5 +80,16 @@ public class FeedContoroller {
 			return new ResponseEntity<>("update success", HttpStatus.OK);
 	    }
 	    
-
+	    @PostMapping("/insert")
+	    public ResponseEntity<String> createInsert(
+	    		@RequestBody Feeds feeds){
+	    	System.out.println("-----createInsert 작동중-------");
+	    	System.out.println("getFeedsCreateInsert()");
+	    	System.out.println("feedNo = " + feedNo);
+	    	
+	    	service.save(feeds);
+	    	
+	    	return new ResponseEntity<>("insert success", HttpStatus.OK);
+	    }
+	   
 }

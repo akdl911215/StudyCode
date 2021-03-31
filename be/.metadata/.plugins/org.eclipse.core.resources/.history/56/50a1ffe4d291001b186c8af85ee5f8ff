@@ -3,6 +3,7 @@ package com.example.demo.fds.service;
 import com.example.demo.fds.domian.Feeds;
 
 public interface FeedService {
-		
+	public void createInsert(long id, Feeds feeds);
+	
 	public void updateDB(long id, Feeds feeds);
 }

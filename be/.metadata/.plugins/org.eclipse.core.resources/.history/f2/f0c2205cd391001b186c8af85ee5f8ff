@@ -34,7 +34,6 @@ public class FeedContoroller {
 	    		@RequestBody Feeds feeds){
 	    	System.out.println("-----insert ¿€µø¡ﬂ-------");
 	    	System.out.println("getFeedsInsert()");
-	    	System.out.println("feeds = " + feeds.toString());
 	    	
 	    	service.save(feeds);
 	    	
@@ -80,6 +79,5 @@ public class FeedContoroller {
 	    	
 			return new ResponseEntity<>("update success", HttpStatus.OK);
 	    }
-	    
-
+	   
 }

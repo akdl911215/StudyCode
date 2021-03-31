@@ -8,9 +8,10 @@ const FeedBoardRegister = () => {
         content: ' ',
         addLocation: ' ',
         hashTag: ' ',
+        regdate: ' ',
     });
 
-    const { title, writer, content, addLocation, hashTag } = inputs;
+    const { title, writer, content, addLocation, hashTag, regDate } = inputs;
 
     const handleChange = useCallback(
         (e) => {
@@ -29,7 +30,12 @@ const FeedBoardRegister = () => {
             console.log('작동');
 
             alert('test Insert');
-
+            alert('제목 : ' + title);
+            alert('작성자 : ' + writer);
+            alert('본문내용 : ' + content);
+            alert('작성위치 : ' + addLocation);
+            alert('해쉬태그 : ' + hashTag);
+            alert('등록일자 : ' + regDate);
             axios
                 .post('http://localhost:8080/feeds/insert', {
                     title,
@@ -37,6 +43,7 @@ const FeedBoardRegister = () => {
                     content,
                     addLocation,
                     hashTag,
+                    regDate,
                 })
                 .then((res) => {
                     console.log(res);
@@ -44,7 +51,7 @@ const FeedBoardRegister = () => {
                 })
                 .catch((err) => console.log(err));
         },
-        [title, writer, content, addLocation, hashTag]
+        [title, writer, content, addLocation, hashTag, regDate]
     );
 
     return (
@@ -74,10 +81,15 @@ const FeedBoardRegister = () => {
                     </label>
                     <input type="text" onChange={handleChange} placeholder="Enter AddLocation" name="addLocation" id="addLocation" required />
 
-                    <label htmlFor="hashTage">
+                    <label htmlFor="hashTag">
                         <b>해쉬 태그</b>
                     </label>
-                    <input type="text" onChange={handleChange} placeholder="Enter HashTage" name="hashTage" id="hashTage" required />
+                    <input type="text" onChange={handleChange} placeholder="Enter HashTag" name="hashTag" id="hashTag" required />
+
+                    <label htmlFor="regDate">
+                        <b>등록 일자</b>
+                    </label>
+                    <input type="text" onChange={handleChange} placeholder="Enter RegDate" name="regDate" id="regDate" required />
 
                     <hr />
 

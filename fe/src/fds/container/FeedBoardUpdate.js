@@ -46,7 +46,7 @@ const FeedBoardUpdate = () => {
                 })
                 .then((res) => {
                     console.log(res);
-                    window.location = '/FeedBoardListm';
+                    window.location = '/FeedBoardList';
                 })
                 .catch((err) => console.log(err));
         },

@@ -41,7 +41,7 @@ public class FeedsDto implements Serializable {
 					 .title(title)
 					 .writer(writer)
 					 .content(content)
-					 .addLocation(addLocation)
+					 .addLoction(addLoction)
 					 .hashTag(hashTag)
 					 .build();
 	}

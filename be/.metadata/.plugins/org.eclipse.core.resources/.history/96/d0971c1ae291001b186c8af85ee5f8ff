@@ -19,19 +19,19 @@ public class FeedsDto implements Serializable {
 	private String title;
 	private String writer;
 	private String content;
-	private String addLocation;
+	private String addLoction;
 	private String hashTag;
 	private String regDate;
 	
 	@Builder
-	public FeedsDto(long feedNo, String title, String writer, String content, String addLocation, String hashTag,
+	public FeedsDto(long feedNo, String title, String writer, String content, String addLoction, String hashTag,
 			String regDate) {
 		super();
 		this.feedNo = feedNo;
 		this.title = title;
 		this.writer = writer;
 		this.content = content;
-		this.addLocation = addLocation;
+		this.addLoction = addLoction;
 		this.hashTag = hashTag;
 		this.regDate = regDate;
 	}
@@ -41,7 +41,7 @@ public class FeedsDto implements Serializable {
 					 .title(title)
 					 .writer(writer)
 					 .content(content)
-					 .addLocation(addLocation)
+					 .addLoction(addLoction)
 					 .hashTag(hashTag)
 					 .build();
 	}

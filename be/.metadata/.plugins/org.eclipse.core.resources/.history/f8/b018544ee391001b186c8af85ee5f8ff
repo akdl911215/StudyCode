@@ -78,6 +78,11 @@ public class FeedServiceImpl extends AbstractService<Feeds> implements FeedServi
 		repo.save(entity);
 	}
 
+	@Override
+	public void createInsert(Feeds feeds) {
+		// TODO Auto-generated method stub
+		
+	}
 
 
 

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../css/list.css';
+import '../component/list.css';
 
 const FeedBoardList = () => {
     const [fds, setFds] = useState([]);
@@ -46,6 +46,7 @@ const FeedBoardList = () => {
                             <td>{fds.writer}</td>
                             <td>{fds.content}</td>
                             <td>{fds.addLocation}</td>
+                            <td>{fds.hashTag}</td>
                             <td>{fds.regDate}</td>
                             <td>
                                 <Link to={`/FeedBoardRead/${fds.feedNo}`} className="linkto-fds">

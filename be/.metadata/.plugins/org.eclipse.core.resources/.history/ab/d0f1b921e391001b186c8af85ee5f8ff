@@ -8,7 +8,7 @@ import com.example.demo.cmm.service.AbstractService;
 import com.example.demo.fds.domian.Feeds;
 import com.example.demo.fds.repository.FeedRepository;
 
-
+import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
 
@@ -53,6 +53,9 @@ public class FeedServiceImpl extends AbstractService<Feeds> implements FeedServi
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	
+
 	
 	@Override
 	public void updateDB(long id, Feeds feeds) {
@@ -78,6 +81,11 @@ public class FeedServiceImpl extends AbstractService<Feeds> implements FeedServi
 		repo.save(entity);
 	}
 
+	@Override
+	public void createInsert(Feeds feeds) {
+		// TODO Auto-generated method stub
+		
+	}
 
 
 
