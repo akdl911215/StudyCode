@@ -1,0 +1,7 @@
+package com.example.demo.fds.service;
+
+import com.example.demo.fds.domian.Feeds;
+
+public interface FeedService {
+	public long update(long id, Feeds feeds);
+}

@@ -3,6 +3,8 @@ package com.example.demo.cmm.service;
 import java.util.List;
 import java.util.Optional;
 
+import com.example.demo.fds.domian.Feeds;
+
 
 
 public abstract class AbstractService<T> {

@@ -8,8 +8,10 @@ import com.example.demo.cmm.service.AbstractService;
 import com.example.demo.fds.domian.Feeds;
 import com.example.demo.fds.repository.FeedRepository;
 
+import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
+@Data
 @RequiredArgsConstructor
 @Service
 public class FeedServiceImpl extends AbstractService<Feeds> implements FeedService {
@@ -52,7 +54,21 @@ public class FeedServiceImpl extends AbstractService<Feeds> implements FeedServi
 		return null;
 	}
 
+	
 
+	
+	@Override
+	public void updateDB(long id, Feeds feeds) {
+		Feeds f = repo.findById(id).orElseThrow();
+		
+		f.setTitle(feeds.getTitle());
+		f.setWriter(feeds.getWriter());
+		f.setContent(feeds.getContent());
+		f.setAddLoction(feeds.getAddLoction());
+		f.setHashTag(feeds.getHashTag());
+		
+		repo.save(f);
+	}
 
 	@Override
 	public Feeds findById(Long id) {
@@ -64,5 +80,20 @@ public class FeedServiceImpl extends AbstractService<Feeds> implements FeedServi
 	public void save(Feeds entity) {
 		repo.save(entity);
 	}
+
+	@Override
+	public void create(Feeds feeds) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Feeds detail(long feedNo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
+	
 
 }

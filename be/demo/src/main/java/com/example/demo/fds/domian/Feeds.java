@@ -7,6 +7,7 @@ import lombok.*;
 @NoArgsConstructor
 @Entity
 @Getter
+@Setter
 @Table(name = "feeds")
 public class Feeds {
 	
@@ -32,6 +33,7 @@ public class Feeds {
 	
 	@Column(name = "reg_date")
 	private String regDate;
+	
 
 	@Builder
 	public Feeds(long feedNo, String title, String writer, String content, String addLoction, String hashTag,
@@ -45,13 +47,4 @@ public class Feeds {
 		this.hashTag = hashTag;
 		this.regDate = regDate;
 	}
-
-	public void update(String title, String writer, String content, String addLoction, String hashTag) {
-		this.title = title;
-		this.writer = writer;
-		this.content = content;
-		this.addLoction = addLoction;
-		this.hashTag = hashTag;
-	}
-	
 }

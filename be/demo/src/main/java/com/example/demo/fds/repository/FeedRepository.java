@@ -11,4 +11,5 @@ public interface FeedRepository extends JpaRepository<Feeds, Long>, CustomReposi
 	
 
 	public Feeds findByFeedNo(@Param("feedNo") Long feedNo);
+	
 }
