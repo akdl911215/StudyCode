@@ -8,10 +8,9 @@ const FeedBoardRegister = () => {
         content: ' ',
         addLocation: ' ',
         hashTag: ' ',
-        regdate: ' ',
     });
 
-    const { title, writer, content, addLocation, hashTag, regDate } = inputs;
+    const { title, writer, content, addLocation, hashTag } = inputs;
 
     const handleChange = useCallback(
         (e) => {
@@ -36,7 +35,6 @@ const FeedBoardRegister = () => {
                     content,
                     addLocation,
                     hashTag,
-                    regDate,
                 })
                 .then((res) => {
                     console.log(res);
@@ -44,7 +42,7 @@ const FeedBoardRegister = () => {
                 })
                 .catch((err) => console.log(err));
         },
-        [title, writer, content, addLocation, hashTag, regDate]
+        [title, writer, content, addLocation, hashTag]
     );
 
     return (
@@ -78,11 +76,6 @@ const FeedBoardRegister = () => {
                         <b>해쉬 태그</b>
                     </label>
                     <input type="text" onChange={handleChange} placeholder="Enter HashTag" name="hashTag" id="hashTag" required />
-
-                    <label htmlFor="regDate">
-                        <b>등록 일자</b>
-                    </label>
-                    <input type="text" onChange={handleChange} placeholder="Enter RegDate" name="regDate" id="regDate" required />
 
                     <hr />
 

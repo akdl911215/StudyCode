@@ -3,14 +3,17 @@ package com.example.demo.uss.service;
 
 import java.util.*;
 
+import javax.persistence.TypedQuery;
+
 import org.springframework.stereotype.Service;
 
 import com.example.demo.cmm.service.AbstractService;
 import com.example.demo.uss.domain.User;
 import com.example.demo.uss.repository.UserRepository;
 
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
+
+
 
 @RequiredArgsConstructor
 @Service
@@ -65,6 +68,5 @@ public class UserServiceImpl extends AbstractService<User> implements UserServic
 		return null;
 	}
 
-
-
+	
 }

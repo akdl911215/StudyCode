@@ -4,14 +4,14 @@ import axios from 'axios';
 
 const SignUp = () => {
     const [inputs, setInputs] = useState({
-        userName: ' ',
-        userPassword: ' ',
+        username: ' ',
+        password: ' ',
         userEmail: ' ',
         userAddress: ' ',
         userPhoneNumber: ' ',
     });
 
-    const { userName, userPassword, userEmail, userAddress, userPhoneNumber } = inputs;
+    const { username, password, userEmail, userAddress, userPhoneNumber } = inputs;
 
     const handleChange = useCallback(
         (e) => {
@@ -31,16 +31,16 @@ const SignUp = () => {
             e.preventDefault();
             console.log('작동');
 
-            alert('ID : ' + userName);
-            alert('비밀번호 : ' + userPassword);
+            alert('ID : ' + username);
+            alert('비밀번호 : ' + password);
             alert('email : ' + userEmail);
             alert('주소 : ' + userAddress);
             alert('핸드폰 번호 : ' + userPhoneNumber);
 
             axios
                 .post('http://localhost:8080/users/insert', {
-                    userName,
-                    userPassword,
+                    username,
+                    password,
                     userEmail,
                     userAddress,
                     userPhoneNumber,
@@ -50,40 +50,40 @@ const SignUp = () => {
                 })
                 .catch((err) => console.log(err));
         },
-        [userName, userPassword, userEmail, userAddress, userPhoneNumber]
+        [username, password, userEmail, userAddress, userPhoneNumber]
     );
 
     return (
-        <form onSubmit={handleSubmit} method="get">
+        <form onSubmit={handleSubmit} method="post">
             <div className="container">
                 <h1>회원가입</h1>
 
                 <hr />
 
-                <label htmlFor="userName">
+                <label htmlFor="username">
                     <b>아이디</b>
                 </label>
-                <input type="text" onChange={handleChange} placeholder="UserName" name="userName" />
+                <input type="text" onChange={handleChange} placeholder="Username" name="username" value={username} />
 
-                <label htmlFor="userPassword">
+                <label htmlFor="password">
                     <b>비밀번호</b>
                 </label>
-                <input type="password" onChange={handleChange} placeholder="UserPassword" name="userPassword" />
+                <input type="password" onChange={handleChange} placeholder="Password" name="password" value={password} />
 
                 <label htmlFor="userEmail">
                     <b>Email</b>
                 </label>
-                <input type="text" onChange={handleChange} placeholder="UserEmail" name="userEmail" />
+                <input type="text" onChange={handleChange} placeholder="UserEmail" name="userEmail" value={userEmail} />
 
                 <label htmlFor="userAddress">
                     <b>주소</b>
                 </label>
-                <input type="text" onChange={handleChange} placeholder="UserAddress" name="userAddress" />
+                <input type="text" onChange={handleChange} placeholder="UserAddress" name="userAddress" value={userAddress} />
 
                 <label htmlFor="userPhoneNumber">
                     <b>핸드폰 번호</b>
                 </label>
-                <input type="text" onChange={handleChange} placeholder="UserPhoneNumber" name="userPhoneNumber" />
+                <input type="text" onChange={handleChange} placeholder="UserPhoneNumber" name="userPhoneNumber" value={userPhoneNumber} />
 
                 <div className="clearfix">
                     <button type="/button" className="cancelbtn">

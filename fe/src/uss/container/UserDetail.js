@@ -1,30 +1,56 @@
-import './src/uss/component/userDetail.css'
+// import './src/uss/component/userDetail.css';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 
-const UserDetail = () => (
-    <form action="/action_page.php">
-        <div className="container">
-            <h1>Read (읽기전용)</h1>
-            <p>Please fill in this form to read an account.</p>
-            <hr/>
+const UserDetail = () => {
+    const [detail, setDetail] = useState({});
 
-            <label for="email"><b>Email ( ID )</b></label>
-            <input type="text" placeholder="Enter Email" name="email" id="email" required/>
+    const fetchOne = () => {
+        axios({
+            /*method: post*/
+        })
+            .then((res) => {
+                console.log(res);
+                setDetail(res.data);
+            })
+            .catch((err) => console.log(err));
+    };
 
-            <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" id="psw" required/>
+    useEffect(() => {
+        fetchOne();
+    }, []);
 
-            <label for="psw-repeat"><b>Repeat Password</b></label>
-            <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required/>
-            <hr/>
-            <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+    return (
+        <>
+            <h2>로그인</h2>
 
-            <button type="/submit" class="registerbtn">Read (읽기전용)</button>
-        </div>
-        
-        <div className="container signin">
-            <p>Already have an account? <a href="#">Sign in</a>.</p>
-        </div>
-    </form>
-)
+            <form>
+                <div className="imgcontainer">
+                    <img src="img_avatar2.png" alt="Avatar" class="avatar" />
+                </div>
 
-export default UserDetail
+                <div className="container">
+                    <label htmlFor="uname">
+                        <b>Username</b>
+                    </label>
+                    <input type="text" placeholder="Enter Username" name="uname" required />
+
+                    <label htmlFor="psw">
+                        <b>Password</b>
+                    </label>
+                    <input type="password" placeholder="Enter Password" name="psw" required />
+
+                    <button type="submit">Login</button>
+
+                    <div className="container" />
+                    <button type="button" className="cancelbtn">
+                        Cancel
+                    </button>
+                </div>
+            </form>
+        </>
+    );
+};
+
+export default UserDetail;

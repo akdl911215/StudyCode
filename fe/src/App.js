@@ -6,6 +6,7 @@ import Home from './cmm/container/Home';
 import FeedBoardRead from './fds/container/FeedBoardRead';
 import FeedBoardUpdate from './fds/container/FeedBoardUpdate';
 import SignUp from './uss/container/SignUp';
+import UserDetail from './uss/container/UserDetail';
 
 const App = () => {
     return (
@@ -20,6 +21,8 @@ const App = () => {
             <Route path="/FeedBoardUpdate" component={FeedBoardUpdate} />
             <br />
             <Route path="/SignUp" component={SignUp} />
+            <br />
+            <Route path="/UserDetail" component={UserDetail} />
         </>
     );
 };

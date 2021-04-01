@@ -19,7 +19,7 @@ public class Proxy {
 	public BiPredicate<String, String> equals = String :: equals;
 	public BiFunction<Integer, Integer, Integer> random =(t,u)->(int)(Math.random()*(u-t))+t;
 	public Function<Integer, int[]> intArr = int[] :: new;
-	public Supplier<LocalDate> today = () -> LocalDate.now();
+	public static Supplier<LocalDate> today = () -> LocalDate.now();
 	public Supplier<LocalTime> time = () -> LocalTime.now();
 	public BiFunction<String,String, File> mkDir = File::new;
 	public BiFunction<File,String, File> mkFile = File::new;

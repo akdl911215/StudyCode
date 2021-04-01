@@ -1,6 +1,7 @@
 package com.example.demo.fds.domian;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -21,7 +22,7 @@ public class FeedsDto implements Serializable {
 	private String content;
 	private String addLocation;
 	private String hashTag;
-	private String regDate;
+	private Date regDate = new Date();
 	
 	@Builder
 	public FeedsDto(long feedNo, String title, String writer, String content, String addLocation, String hashTag,
@@ -33,7 +34,7 @@ public class FeedsDto implements Serializable {
 		this.content = content;
 		this.addLocation = addLocation;
 		this.hashTag = hashTag;
-		this.regDate = regDate;
+		this.regDate = new Date();
 	}
 	
 	public Feeds toEntity() {

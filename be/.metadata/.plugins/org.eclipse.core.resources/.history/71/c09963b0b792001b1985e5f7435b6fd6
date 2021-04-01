@@ -1,0 +1,20 @@
+package com.example.demo.uss.repository;
+
+import java.util.List;
+
+import javax.persistence.Query;
+import javax.persistence.TypedQuery;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.example.demo.uss.domain.User;
+
+interface CustomUserRepository {
+	
+}
+
+public interface UserRepository extends JpaRepository<User, Long>,
+								CustomUserRepository{
+
+
+}

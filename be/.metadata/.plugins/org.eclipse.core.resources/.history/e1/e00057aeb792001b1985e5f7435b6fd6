@@ -1,0 +1,30 @@
+package com.example.demo.uss.repository;
+
+import java.util.List;
+
+import javax.persistence.TypedQuery;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.example.demo.uss.domain.User;
+
+
+import java.util.List;
+
+import javax.persistence.TypedQuery;
+
+import com.example.demo.uss.domain.User;
+
+interface CustomUserRepository {
+	
+}
+
+public interface UserRepository extends JpaRepository<User, Long>,
+								CustomUserRepository{
+	String jpql = "select m from Memver m where m.name like '%hello'";
+	List<User> result = repo.createQuery(jpql, User.class).getResultList();
+	
+	TypedQuery<User> query = repo.createQuery("ESLECT m From User m", User.class);
+
+
+}

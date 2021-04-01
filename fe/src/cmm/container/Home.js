@@ -9,7 +9,9 @@ const Home = () => {
                 <br />
                 <Link to={'/FeedBoardRegister'}>FeedBoardRegister</Link>
                 <br />
-                <Link to={'/SignUp'}>SignUp</Link>
+                <Link to={'/SignUp'}>회원가입(SignUp)</Link>
+                <br />
+                <Link to={'/UserDetail'}>로그인(UserDetail)</Link>
             </div>
         </>
     );
