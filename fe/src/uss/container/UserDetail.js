@@ -1,14 +1,27 @@
 // import './src/uss/component/userDetail.css';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 
 const UserDetail = () => {
     const [detail, setDetail] = useState({});
 
-    const fetchOne = () => {
+    // const authenticated = detail != null;
+
+    // const login = ({ username, password }) => setDetail(detailLogin({ username, password }));
+    // const logout = () => setDetail(null);
+
+    const detailLogin = (username, password) => {
+        detail.find((detail) => detail.username === username && detail.password === password);
+        if (detail === undefined) throw new Error();
+        return detailLogin;
+    };
+
+    const fetchOne = (detailLogin) => {
+        alert('로그인을 시도합니다.');
+
         axios({
-            /*method: post*/
+            username: ' ',
+            password: ' ',
         })
             .then((res) => {
                 console.log(res);
@@ -23,16 +36,16 @@ const UserDetail = () => {
 
     return (
         <>
-            <h2>로그인</h2>
+            <form onSubmit={fetchOne} method="get">
+                <h2>로그인</h2>
 
-            <form>
                 <div className="imgcontainer">
-                    <img src="img_avatar2.png" alt="Avatar" class="avatar" />
+                    <img src="img_avatar2.png" alt="Avatar" className="avatar" />
                 </div>
 
                 <div className="container">
                     <label htmlFor="uname">
-                        <b>Username</b>
+                        <b>ID</b>
                     </label>
                     <input type="text" placeholder="Enter Username" name="uname" required />
 
@@ -41,7 +54,7 @@ const UserDetail = () => {
                     </label>
                     <input type="password" placeholder="Enter Password" name="psw" required />
 
-                    <button type="submit">Login</button>
+                    <button type="submit">로그인</button>
 
                     <div className="container" />
                     <button type="button" className="cancelbtn">

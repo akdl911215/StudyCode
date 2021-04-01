@@ -47,7 +47,7 @@ const FeedBoardRegister = () => {
 
     return (
         <>
-            <form onSubmit={handleSubmit} method="post">
+            <form onSubmit={handleSubmit} method="get">
                 <div className="ragisterForm">
                     <h1>등록</h1>
                     <hr />

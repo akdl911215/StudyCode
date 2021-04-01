@@ -35,15 +35,5 @@ public class UserController {
 		
 		return new ResponseEntity<>("insert success", HttpStatus.OK);
 	}
-	
-	@PostMapping("/login")
-	public ResponseEntity<?> doLogin(
-			@RequestBody User user) {
-		System.out.println("---login ¿€µø!---");
-		
-		sv.save(user);
-		
-		return new ResponseEntity<>("Login success", HttpStatus.OK);
-	}
 
 }
