@@ -1,31 +1,44 @@
 // import './src/uss/component/userDetail.css';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const UserDetail = () => {
-    const [detail, setDetail] = useState({});
+    const [inputs, setInputs] = useState({
+        username: ' ',
+        password: ' ',
+    });
 
-    // const authenticated = detail != null;
+    const { username, password } = inputs;
 
-    // const login = ({ username, password }) => setDetail(detailLogin({ username, password }));
-    // const logout = () => setDetail(null);
+    const handleChange = useCallback(
+        (e) => {
+            const { name, value } = e.target;
+            setInputs({
+                ...inputs,
+                [name]: value,
+            });
+        },
+        [inputs]
+    );
 
-    const detailLogin = (username, password) => {
-        detail.find((detail) => detail.username === username && detail.password === password);
-        if (detail === undefined) throw new Error();
-        return detailLogin;
-    };
-
-    const fetchOne = (detailLogin) => {
-        alert('로그인을 시도합니다.');
+    const fetchOne = () => {
+        console.log(setInputs);
+        alert('정보를 가져옵니다');
 
         axios({
-            username: ' ',
-            password: ' ',
+            method: 'post',
+            url: `http://localhost:8080/users/login/${localStorage.getItem('select')}`,
+            data: {
+                username,
+                password,
+            },
         })
             .then((res) => {
                 console.log(res);
-                setDetail(res.data);
+                alert('res = ' + res);
+                setInputs(res.data);
+                alert('res.data = ' + res.data);
             })
             .catch((err) => console.log(err));
     };
@@ -34,9 +47,30 @@ const UserDetail = () => {
         fetchOne();
     }, []);
 
+    const handleSubmit = useCallback(
+        (e) => {
+            alert('정보를 보냅니다');
+            alert(`${localStorage.getItem('select')}`);
+
+            e.preventDefault();
+            console.log('Log in');
+            axios
+                .put(`http://localhost:8080/users/${localStorage.getItem('select')}`, {
+                    username,
+                    password,
+                })
+                .then((res) => {
+                    console.log(res);
+                    window.location = '/';
+                })
+                .catch((err) => console.log(err));
+        },
+        [username, password]
+    );
+
     return (
         <>
-            <form onSubmit={fetchOne} method="get">
+            <form onSubmit={handleSubmit} method="get">
                 <h2>로그인</h2>
 
                 <div className="imgcontainer">
@@ -44,22 +78,31 @@ const UserDetail = () => {
                 </div>
 
                 <div className="container">
-                    <label htmlFor="uname">
+                    <label htmlFor="username">
                         <b>ID</b>
                     </label>
-                    <input type="text" placeholder="Enter Username" name="uname" required />
+                    <input type="text" placeholder="Enter Username" name="username" value={username} onChange={handleChange} required />
 
-                    <label htmlFor="psw">
+                    <label htmlFor="password">
                         <b>Password</b>
                     </label>
-                    <input type="password" placeholder="Enter Password" name="psw" required />
+                    <input type="password" placeholder="Enter Password" name="password" value={password} onChange={handleChange} required />
 
-                    <button type="submit">로그인</button>
+                    <button
+                        type="submit"
+                        onClick={() => {
+                            localStorage.setItem('select', `${username}`);
+                        }}
+                    >
+                        로그인
+                    </button>
 
                     <div className="container" />
-                    <button type="button" className="cancelbtn">
-                        Cancel
-                    </button>
+                    <Link to="/">
+                        <button type="button" className="cancelbtn">
+                            취소
+                        </button>
+                    </Link>
                 </div>
             </form>
         </>

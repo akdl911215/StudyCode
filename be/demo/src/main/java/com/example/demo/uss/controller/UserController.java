@@ -36,14 +36,16 @@ public class UserController {
 		return new ResponseEntity<>("insert success", HttpStatus.OK);
 	}
 	
-	@PostMapping("/login")
-	public ResponseEntity<?> doLogin(
-			@RequestBody User user) {
+	@PostMapping("/login/{username,password}")
+	public User login(
+			@PathVariable("username") String username,
+			@PathVariable("password") String password) {
 		System.out.println("---login ¿€µø!---");
+	
 		
-		sv.save(user);
+		sv.login(username, password);
 		
-		return new ResponseEntity<>("Login success", HttpStatus.OK);
+		return new User();
 	}
 
 }
