@@ -1,7 +1,0 @@
-package com.example.demo.fds.repository;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-
-public class FeedReository implements JpaRepository<Feeds, Long> {
-
-}

@@ -5,13 +5,14 @@ import javax.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
 import com.example.demo.uss.domain.User;
 
 interface CustomUserRepository {
 	}
 
-
+@Repository
 public interface UserRepository extends JpaRepository<User, Long>,
 								CustomUserRepository{
 
@@ -27,7 +28,7 @@ public interface UserRepository extends JpaRepository<User, Long>,
 
 // @Query(value = "select user_no userNo, username, password from users where user_no='userNo' and username='username' and password = 'password'",nativeQuery = true)
 	@Transactional
-	@Query(value = "select user_no userNo, username from users where username = :username and password = :password", nativeQuery = true)
+	@Query(value = "select username, password from users where username = :username and password = :password", nativeQuery = true)
 	String login(@Param("username") String username,
 				@Param("password") String password);
 	

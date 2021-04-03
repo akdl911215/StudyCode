@@ -1,5 +1,7 @@
 package com.example.demo.uss.controller;
 
+import java.io.IOException;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -8,9 +10,9 @@ import com.example.demo.uss.domain.User;
 import com.example.demo.uss.service.UserServiceImpl;
 
 import lombok.RequiredArgsConstructor;
-import lombok.extern.java.Log;
 
-@Log
+
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/users")
@@ -39,17 +41,27 @@ public class UserController {
 	}
 	
 	@PostMapping("/login")
-	public ResponseEntity<String> login(
-			@RequestBody User user) {
+	public ResponseEntity<?> login(
+			@RequestBody User user) throws IOException {
 			String login = sv.login(user);
 		System.out.println("---login 작동!---");
+		System.out.println("user = " + user);
+		System.out.println("userToString = " + user.toString());
 		
 		if(login != null) {
 			System.out.println("로그인을 성공하셨습니다");
-			return new ResponseEntity<>(HttpStatus.OK);
+			System.out.println("userNo = " + user.getUserNo());
+			System.out.println("username = " + user.getUsername());
+			System.out.println("password = " + user.getPassword());
+			
+			return new ResponseEntity<>(login, HttpStatus.OK);
 		} else {
 			System.out.println("로그인을 실패하셨습니다");
-			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+			System.out.println("userNo = " + user.getUserNo());
+			System.out.println("username = " + user.getUsername());
+			System.out.println("password = " + user.getPassword());
+			
+			return new ResponseEntity<>(login, HttpStatus.UNAUTHORIZED);
 		}
 	}
 

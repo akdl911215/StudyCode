@@ -12,6 +12,8 @@ const Home = () => {
                 <Link to={'/SignUp'}>회원가입(SignUp)</Link>
                 <br />
                 <Link to={'/UserDetail'}>로그인(UserDetail)</Link>
+                <br />
+                <Link to={'/Test'}>테스트 코드</Link>
             </div>
         </>
     );

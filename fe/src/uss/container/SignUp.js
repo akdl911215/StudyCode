@@ -1,14 +1,14 @@
-import '../component/signupForm.css';
+//import '../component/signupForm.css';
 import React, { useCallback, useState } from 'react';
 import axios from 'axios';
 
 const SignUp = () => {
     const [inputs, setInputs] = useState({
-        username: ' ',
-        password: ' ',
-        userEmail: ' ',
-        userAddress: ' ',
-        userPhoneNumber: ' ',
+        username: '',
+        password: '',
+        userEmail: '',
+        userAddress: '',
+        userPhoneNumber: '',
     });
 
     const { username, password, userEmail, userAddress, userPhoneNumber } = inputs;
@@ -55,7 +55,7 @@ const SignUp = () => {
 
     return (
         <form onSubmit={handleSubmit} method="post">
-            <div className="container">
+            <div className="signUpContainer">
                 <h1>회원가입</h1>
 
                 <hr />
@@ -63,33 +63,33 @@ const SignUp = () => {
                 <label htmlFor="username">
                     <b>아이디</b>
                 </label>
-                <input type="text" onChange={handleChange} placeholder="Username" name="username" value={username} />
+                <input type="text" onChange={handleChange} placeholder="Username" name="username" value={username} required />
 
                 <label htmlFor="password">
                     <b>비밀번호</b>
                 </label>
-                <input type="password" onChange={handleChange} placeholder="Password" name="password" value={password} />
+                <input type="password" onChange={handleChange} placeholder="Password" name="password" value={password} required />
 
                 <label htmlFor="userEmail">
                     <b>Email</b>
                 </label>
-                <input type="text" onChange={handleChange} placeholder="UserEmail" name="userEmail" value={userEmail} />
+                <input type="text" onChange={handleChange} placeholder="UserEmail" name="userEmail" value={userEmail} required />
 
                 <label htmlFor="userAddress">
                     <b>주소</b>
                 </label>
-                <input type="text" onChange={handleChange} placeholder="UserAddress" name="userAddress" value={userAddress} />
+                <input type="text" onChange={handleChange} placeholder="UserAddress" name="userAddress" value={userAddress} required />
 
                 <label htmlFor="userPhoneNumber">
                     <b>핸드폰 번호</b>
                 </label>
-                <input type="text" onChange={handleChange} placeholder="UserPhoneNumber" name="userPhoneNumber" value={userPhoneNumber} />
+                <input type="text" onChange={handleChange} placeholder="UserPhoneNumber" name="userPhoneNumber" value={userPhoneNumber} required />
 
                 <div className="clearfix">
-                    <button type="/button" className="cancelbtn">
+                    <button type="button" className="cancelButton">
                         Cancel
                     </button>
-                    <button type="submit" className="signupbtn">
+                    <button type="submit" className="signupButton">
                         회원가입 버튼
                     </button>
                 </div>

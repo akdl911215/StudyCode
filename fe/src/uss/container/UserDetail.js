@@ -1,32 +1,16 @@
-// import './src/uss/component/userDetail.css';
+//import '../component/userDetail.css';
 import React, { useState, useCallback } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 const UserDetail = () => {
-    const [inputs, setInputs] = useState('');
+    const [inputs, setInputs] = useState({
+        username: '',
+        password: '',
+    });
 
     const { username, password } = inputs;
 
-    const login = (e) => {
-        e.preventDefault();
-        console.log(setInputs);
-        alert('do Login');
-
-        axios
-            .post(`http://localhost:8080/users/login`, {
-                username,
-                password,
-            })
-            .then((res) => {
-                alert('로그인 되셨습니다');
-                console.log(res);
-                alert('res = ' + JSON.stringify(res));
-
-                alert('res.data = ' + res.data);
-            })
-            .catch((err) => console.log(err));
-    };
     const handleChange = useCallback(
         (e) => {
             const { value, name } = e.target;
@@ -38,6 +22,34 @@ const UserDetail = () => {
         [inputs]
     );
 
+    const login = (e) => {
+        e.preventDefault();
+        console.log(setInputs);
+        alert('username = ' + username);
+        alert('password = ' + password);
+
+        axios
+            .post(`http://localhost:8080/users/login`, {
+                username: username,
+                password: password,
+            })
+            .then((res) => {
+                alert('로그인 되셨습니다');
+                console.log(res);
+                alert('res = ' + JSON.stringify(res));
+                alert('res.data = ' + JSON.stringify(res.data));
+                // alert('res.data.data = ' + res.data.data);
+                // alert('JOSN.stringify(res.data.data) = ' + JSON.stringify(res.data.data));
+
+                alert('inputs = ' + inputs);
+                alert('JOSN.stringify(res.inputs) = ' + JSON.stringify(res.inputs));
+                setInputs(res.data);
+            })
+            .catch(() => {
+                alert('가입하지 않은 아이디이거나, 잘못된 비밀번호입니다.');
+            });
+    };
+
     return (
         <>
             <form onSubmit={(e) => e.preventDefault()}>
@@ -47,7 +59,7 @@ const UserDetail = () => {
                     <img src="img_avatar2.png" alt="Avatar" className="avatar" />
                 </div>
 
-                <div className="container">
+                <div className="userDetailContainer">
                     <label htmlFor="username">
                         <b>ID</b>
                     </label>
@@ -62,7 +74,7 @@ const UserDetail = () => {
                         로그인
                     </button>
 
-                    <div className="container" />
+                    <div className="userDetailContainer" />
                     <Link to="/">
                         <button type="submit" className="cancelbtn">
                             취소
