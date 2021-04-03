@@ -3,6 +3,6 @@ package com.example.demo.uss.service;
 import com.example.demo.uss.domain.User;
 
 public interface UserService {
-	public void login(String username, String password);
+	public String login(User user);
 	
 }

@@ -8,7 +8,9 @@ import com.example.demo.uss.domain.User;
 import com.example.demo.uss.service.UserServiceImpl;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.java.Log;
 
+@Log
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/users")
@@ -36,16 +38,19 @@ public class UserController {
 		return new ResponseEntity<>("insert success", HttpStatus.OK);
 	}
 	
-	@PostMapping("/login/{username,password}")
-	public User login(
-			@PathVariable("username") String username,
-			@PathVariable("password") String password) {
+	@PostMapping("/login")
+	public ResponseEntity<String> login(
+			@RequestBody User user) {
+			String login = sv.login(user);
 		System.out.println("---login 작동!---");
-	
 		
-		sv.login(username, password);
-		
-		return new User();
+		if(login != null) {
+			System.out.println("로그인을 성공하셨습니다");
+			return new ResponseEntity<>(HttpStatus.OK);
+		} else {
+			System.out.println("로그인을 실패하셨습니다");
+			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+		}
 	}
 
 }

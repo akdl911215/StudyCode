@@ -74,8 +74,8 @@ public class UserServiceImpl extends AbstractService<User> implements UserServic
 	}
 
 	@Override
-	public void login(String username, String password) {
-		repo.login(username, password);
+	public String login(User user) {
+		return repo.login(user.getUsername(), user.getPassword());
 	}
 
 	
