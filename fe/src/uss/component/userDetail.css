@@ -8,7 +8,7 @@ body {
   }
   
   /* Add padding to containers */
-  .container {
+  .userDetailContainer {
     padding: 16px;
     background-color: white;
   }

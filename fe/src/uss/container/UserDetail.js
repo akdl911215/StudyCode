@@ -5,11 +5,12 @@ import { Link } from 'react-router-dom';
 
 const UserDetail = () => {
     const [inputs, setInputs] = useState({
+        userNo: '',
         username: '',
         password: '',
     });
 
-    const { username, password } = inputs;
+    const { userNo, username, password } = inputs;
 
     const handleChange = useCallback(
         (e) => {
@@ -25,11 +26,13 @@ const UserDetail = () => {
     const login = (e) => {
         e.preventDefault();
         console.log(setInputs);
+        alert('userNo = ' + userNo);
         alert('username = ' + username);
         alert('password = ' + password);
 
         axios
             .post(`http://localhost:8080/users/login`, {
+                userNo: userNo,
                 username: username,
                 password: password,
             })

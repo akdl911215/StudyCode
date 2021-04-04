@@ -43,10 +43,13 @@ public class UserController {
 	@PostMapping("/login")
 	public ResponseEntity<?> login(
 			@RequestBody User user) throws IOException {
+			sv.findAll();
+		System.out.println("sv.findAll() = " + sv.findAll());
 			String login = sv.login(user);
 		System.out.println("---login 작동!---");
 		System.out.println("user = " + user);
 		System.out.println("userToString = " + user.toString());
+		System.out.println("user.getUserNo() = " + user.getUserNo());
 		
 		if(login != null) {
 			System.out.println("로그인을 성공하셨습니다");
