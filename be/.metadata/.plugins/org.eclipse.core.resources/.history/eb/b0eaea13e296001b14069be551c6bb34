@@ -79,7 +79,7 @@ public class FeedServiceImpl extends AbstractService<Feeds> implements FeedServi
 	}
 
 	@Override
-	public Feeds findById2(String id) {
+	public Feeds findById2(String username) {
 		// TODO Auto-generated method stub
 		return null;
 	}

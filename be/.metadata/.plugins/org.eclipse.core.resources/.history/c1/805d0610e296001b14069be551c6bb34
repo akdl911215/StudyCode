@@ -14,6 +14,6 @@ public abstract class AbstractService<T> {
 	public abstract T getOne(long id);
 	public abstract void save(T entity);
 	public abstract T findById(Long id);
-	public abstract T findById2(String id);
+	public abstract T findById2(String username);
 }
 

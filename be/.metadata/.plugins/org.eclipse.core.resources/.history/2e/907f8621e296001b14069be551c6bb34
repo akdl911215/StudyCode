@@ -76,7 +76,7 @@ public class UserController {
 	    	System.out.println("-----update ¿€µø¡ﬂ-----");
 	    	System.out.println(username);
 	    	
-	    	sv.updateDB(username, user);
+	    	sv.updateDB(feedNo, feeds);
 	    	
 			return new ResponseEntity<>("update success", HttpStatus.OK);
 	    }

@@ -1,7 +1,5 @@
 package com.example.demo.uss.repository;
 
-import java.util.Optional;
-
 import javax.transaction.Transactional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -24,7 +22,6 @@ public interface UserRepository extends JpaRepository<User, Long>,
 	String login(@Param("username") String username,
 				@Param("password") String password);
 	
-	public User findByIdusername(@Param("username") String username);
-
+	public User findByusername(@Param("username") String username);
 	
 }

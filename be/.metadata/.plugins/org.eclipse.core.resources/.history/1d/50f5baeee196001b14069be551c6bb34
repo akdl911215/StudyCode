@@ -8,7 +8,6 @@ import javax.persistence.TypedQuery;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.cmm.service.AbstractService;
-import com.example.demo.fds.domian.Feeds;
 import com.example.demo.uss.domain.User;
 import com.example.demo.uss.domain.UserDto;
 import com.example.demo.uss.repository.UserRepository;
@@ -77,26 +76,6 @@ public class UserServiceImpl extends AbstractService<User> implements UserServic
 	@Override
 	public String login(User user) {
 		return repo.login(user.getUsername(), user.getPassword());
-	}
-
-	@Override
-	public void updateDB(String id,User user) {
-		User u = repo.findByIdusername(id);
-		
-		u.setUserNo(user.getUserNo());
-		u.setUsername(user.getUsername());
-		u.setPassword(user.getPassword());
-		u.setUserEmail(user.getUserEmail());
-		u.setUserAddress(user.getUserAddress());
-		u.setUserPhoneNumber(user.getUserPhoneNumber());
-		
-		repo.save(u);
-	}
-
-	@Override
-	public User findById2(String id) {
-		// TODO Auto-generated method stub
-		return repo.findByIdusername(id);
 	}
 
 	

@@ -80,8 +80,8 @@ public class UserServiceImpl extends AbstractService<User> implements UserServic
 	}
 
 	@Override
-	public void updateDB(String id,User user) {
-		User u = repo.findByIdusername(id);
+	public String updateDB(String username,User user) {
+		User u = repo.findById2(username);
 		
 		u.setUserNo(user.getUserNo());
 		u.setUsername(user.getUsername());
@@ -91,12 +91,7 @@ public class UserServiceImpl extends AbstractService<User> implements UserServic
 		u.setUserPhoneNumber(user.getUserPhoneNumber());
 		
 		repo.save(u);
-	}
-
-	@Override
-	public User findById2(String id) {
-		// TODO Auto-generated method stub
-		return repo.findByIdusername(id);
+		return repo.;
 	}
 
 	

@@ -80,7 +80,5 @@ public class FeedContoroller {
 			return new ResponseEntity<>("update success", HttpStatus.OK);
 	    }
 	    
-	    
-	    
 
 }
