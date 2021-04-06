@@ -13,7 +13,7 @@ const Home = () => {
                 <br />
                 <Link to={'/UserDetail'}>로그인(UserDetail)</Link>
                 <br />
-                <Link to={'/Test'}>테스트 코드</Link>
+                <Link to={'/UserUpdate'}>마이페이지(UserUpdate)</Link>
             </div>
         </>
     );

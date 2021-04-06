@@ -7,6 +7,7 @@ import FeedBoardRead from './fds/container/FeedBoardRead';
 import FeedBoardUpdate from './fds/container/FeedBoardUpdate';
 import SignUp from './uss/container/SignUp';
 import UserDetail from './uss/container/UserDetail';
+import UserUpdate from './uss/container/UserUpdate';
 
 const App = () => {
     return (
@@ -23,6 +24,8 @@ const App = () => {
             <Route path="/SignUp" component={SignUp} />
             <br />
             <Route path="/UserDetail" component={UserDetail} />
+            <br />
+            <Route path="/UserUpdate" component={UserUpdate} />
         </>
     );
 };
