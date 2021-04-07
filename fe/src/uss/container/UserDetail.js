@@ -39,6 +39,9 @@ const UserDetail = () => {
             .then((res) => {
                 alert('로그인 되셨습니다');
                 console.log(res);
+                if (typeof Storage == res) {
+                    localStorage.setItem('username', '');
+                }
                 alert('res = ' + JSON.stringify(res));
                 alert('res.data = ' + JSON.stringify(res.data));
                 // alert('res.data.data = ' + res.data.data);
@@ -55,7 +58,7 @@ const UserDetail = () => {
 
     return (
         <>
-            <form onSubmit={(e) => e.preventDefault()}>
+            <form onSubmit={login}>
                 <h2>로그인</h2>
 
                 <div className="imgcontainer">
@@ -73,7 +76,7 @@ const UserDetail = () => {
                     </label>
                     <input type="password" placeholder="Enter Password" name="password" value={inputs.password || ''} onChange={handleChange} required />
 
-                    <button type="submit" onClick={login}>
+                    <button type="submit" onClick={() => localStorage.setItem('select', `${inputs.username}`)}>
                         로그인
                     </button>
 

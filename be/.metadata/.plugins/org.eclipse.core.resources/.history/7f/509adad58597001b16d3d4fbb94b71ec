@@ -20,8 +20,6 @@ public interface UserRepository extends JpaRepository<User, Long>,
 	String login(@Param("username") String username,
 				@Param("password") String password);
 	
-	@Transactional
-	@Query(value = "select username from users where username = :username", nativeQuery = true)
 	public User findByIdusername(@Param("username") String username);
 
 	
