@@ -1,7 +1,6 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useCallback } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import { isMoment } from 'moment';
 
 const UserUpdate = () => {
     const [inputs, setInputs] = useState({
@@ -30,9 +29,11 @@ const UserUpdate = () => {
             e.preventDefault();
             console.log('handleSubmit 작동');
             alert('handleSubmit 작동');
+            alert('inputs.username = ' + inputs.username);
+            alert('username = ' + username);
 
             axios
-                .post(' ', {
+                .put(`http://localhost:8080/users/${localStorage.getItem('select')}`, {
                     username,
                     password,
                     userEmail,
@@ -78,12 +79,12 @@ const UserUpdate = () => {
                 </label>
                 <input type="text" onChange={handleChange} placeholder="UserPhoneNumber" name="userPhoneNumber" value={userPhoneNumber} required />
 
-                <div class="clearfix">
-                    <button type="button" class="cancelbtn">
+                <div className="clearfix">
+                    <button type="button" className="cancelbtn">
                         <Link to="/">홈으로</Link>
                     </button>
-                    <button type="submit" class="signupbtn">
-                        정보 수정
+                    <button type="submit" className="updatebtn">
+                        <Link to={`/UserUpdate/${username}`}>정보 수정</Link>
                     </button>
                     <button type="button" className="deletebtn">
                         회원 탈퇴

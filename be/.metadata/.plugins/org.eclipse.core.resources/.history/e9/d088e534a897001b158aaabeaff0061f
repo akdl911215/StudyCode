@@ -21,7 +21,8 @@ public interface UserRepository extends JpaRepository<User, Long>,
 				@Param("password") String password);
 	
 	@Transactional
-	@Query(value = "select user_no, username, password, user_email, user_address, user_phone_number from users where username = :username", nativeQuery = true)
+	@Query(value = "select user_no, username, password, userEmail, userAddress, userPhoneNumber from users where username = :username", nativeQuery = true)
 	public User findByIdusername(@Param("username") String username);
 
+	userPhoneNumber
 }

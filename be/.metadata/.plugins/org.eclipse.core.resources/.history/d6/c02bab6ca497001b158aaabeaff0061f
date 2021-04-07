@@ -74,8 +74,7 @@ public class UserController {
 	    		@RequestBody User user,
 	    		@PathVariable String username){
 	    	System.out.println("-----update ¿€µø¡ﬂ-----");
-	    	System.out.println("username = " + username);
-	    	System.out.println("user.getUserNo = " + user.getUserNo());
+	    	System.out.println(username);
 	    	
 	    	sv.updateDB(username, user);
 	    	
